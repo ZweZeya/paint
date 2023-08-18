@@ -12,6 +12,14 @@ const Canvas = () => {
         setPoint([...points, { x: e.clientX, y: e.clientY }]);
     }
 
+    const elements = points.map(p => <div 
+        style={{
+            position: 'absolute',
+            top: p.y + 'px',
+            left: p.x + 'px'
+        }}
+        >o</div>)
+
     return (
         <div
             onClick={handleClick}
@@ -21,13 +29,7 @@ const Canvas = () => {
             }}
         >
             {
-                points.map(p => <div 
-                    style={{
-                        position: 'absolute',
-                        top: p.y + 'px',
-                        left: p.x + 'px'
-                    }}
-                    >o</div>)
+                elements
             }
         </div>
     )
